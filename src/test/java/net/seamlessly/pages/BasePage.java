@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
 
-    public BasePage() {
+    protected BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
