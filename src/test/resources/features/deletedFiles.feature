@@ -4,7 +4,6 @@ Feature: Deleted Files Tab Functionality under Files Module
   As a user, I should be able to see all deleted files
   and delete/restore them permanently under the Deleted Files tab.
 
-  @SEAMLES-2517
   Background: User should be on the dashboard page with valid credentials
     Given user is on the Seamlessly login page
     And user types valid username "Employee101"
