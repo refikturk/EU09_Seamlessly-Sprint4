@@ -12,3 +12,14 @@ Feature: User should be on the related module
       Then  User clicks on "Settings" module from the right side
       Then  User clicks on "Logout" button from profile menu
 
+      Scenario: User should be able to create new contact
+        When User clicks on "Contacts" module
+        And User clicks on the New contact button
+        And User types "contactFullName" into the New contact placeholder
+        And User types "contactCompany" into the Company placeholder
+        And User types "contactTitle" into the Title placeholder
+        And User clicks on the
+
+
+
+
