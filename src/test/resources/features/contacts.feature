@@ -31,7 +31,7 @@ Feature: User should be on the related module
 
     Examples: Contacts information
       | contactFullName | Company   | Title   | phoneType | phoneNumber | emailType | email               | POBox | Address | Extended address | Postal Code | City | State or province | Country |
-      | Bill Gates      | Microsoft | Founder | Work      | 18776788033 | Work      | billgates@gmail.com |       |         |          |            |      |                 |         |
+      | Bill Gates      | Microsoft | Founder | Work      | 18776788033 | Work      | billgates@gmail.com |       |         |                  |             |      |                   |         |
 
 
 
