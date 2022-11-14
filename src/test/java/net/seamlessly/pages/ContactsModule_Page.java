@@ -5,12 +5,15 @@ import net.seamlessly.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ContactsModule_Page extends BasePage {
+
+    Actions actions = new Actions(Driver.getDriver());
 
     @FindBy(id = "new-contact-button")
     private WebElement newContactButton;
@@ -82,8 +85,10 @@ public class ContactsModule_Page extends BasePage {
 
     public void addressPlaceHolders(String placeHolderName, String inputInformation) {
         WebElement inputPlaceHolder = Driver.getDriver().findElement(By.xpath("//*[@id=\"app-content-vue\"]/div/div/div[3]/div/section/div[3]/div/div//div[normalize-space(text())='" + placeHolderName + "']/following-sibling::input"));
-        BrowserUtils.waitForClickablility(inputPlaceHolder, 2).click();
+        BrowserUtils.waitForClickablility(inputPlaceHolder, 2);
+        actions.doubleClick(inputPlaceHolder).perform();
         inputPlaceHolder.sendKeys(inputInformation);
+        BrowserUtils.sleep(2);
     }
 
     @FindBy(xpath = "//div[@role='group']/div/span/div[2]/span[@class='option__lineone']")
