@@ -22,7 +22,7 @@ public class ProfilePage extends BasePage{
     public WebElement Access;
     @FindBy(xpath= "//a[@class='primary profile__header__container__edit-button']")
     public WebElement Edit;
-
+///
 
     @FindBy(xpath= "//a[@aria-label='Change privacy level of profile picture']")
     public WebElement ProfileButton;
