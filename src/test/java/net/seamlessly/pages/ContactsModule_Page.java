@@ -72,7 +72,7 @@ public class ContactsModule_Page extends BasePage {
     }
 
     public void addressPlaceHolders(String placeHolderName, String inputInformation){
-        WebElement inputPlaceHolder = Driver.getDriver().findElement(By.xpath("//*[@id=\"app-content-vue\"]/div/div/div[3]/div/section/div[3]/div/div/div[normalize-space(text())='"+placeHolderName+"']"));
+        WebElement inputPlaceHolder = Driver.getDriver().findElement(By.xpath("//*[@id=\"app-content-vue\"]/div/div/div[3]/div/section/div[3]/div/div//div[normalize-space(text())='"+placeHolderName+"']/following-sibling::input"));
         BrowserUtils.waitForClickablility(inputPlaceHolder,2).click();
         inputPlaceHolder.sendKeys(inputInformation);
     }

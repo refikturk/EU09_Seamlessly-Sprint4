@@ -20,18 +20,18 @@ Feature: User should be on the related module
     And User types "<Company>" and "<Title>"
     And User clicks on the phone type "<phoneType>" and sends the phone number "<phoneNumber>"
     And User clicks on the email type "<emailType>" and sends the emails "<email>"
-    And User clicks on the PO Box "Post office box" and sends the "<POBox>" information
-    And User clicks on the PO Box "Address" and sends the "<POBox>" information
-    And User clicks on the PO Box "Extended Address" and sends the "<POBox>" information
-    And User clicks on the PO Box "Postal code" and sends the "<POBox>" information
-    And User clicks on the PO Box "City" and sends the "<POBox>" information
-    And User clicks on the PO Box "State or province" and sends the "<POBox>" information
-    And User clicks on the PO Box "Country" and sends the "<POBox>" information
+    And User clicks on the "Post office box" and sends the "<POBox>" information
+    And User clicks on the "Address" and sends the "<Address>" information
+    And User clicks on the "Extended address" and sends the "<Extended address>" information
+    And User clicks on the "Postal code" and sends the "<Postal code>" information
+    And User clicks on the "City" and sends the "<City>" information
+    And User clicks on the "State or province" and sends the "<State or province>" information
+    And User clicks on the "Country" and sends the "<Country>" information
 
 
     Examples: Contacts information
-      | contactFullName | Company   | Title   | phoneType | phoneNumber | emailType | email               | POBox | Address | Extended address | Postal Code | City | State or province | Country |
-      | Bill Gates      | Microsoft | Founder | Work      | 18776788033 | Work      | billgates@gmail.com |       |         |                  |             |      |                   |         |
+      | contactFullName | Company   | Title   | phoneType | phoneNumber | emailType | email               | POBox | Address | Extended address          | Postal code | City    | State or province | Country |
+      | Bill Gates      | Microsoft | Founder | Work      | 18776788033 | Work      | billgates@gmail.com | 36360 | Redmond | Washington, United States | 36360       | Redmond | Washington        | USA     |
 
 
 
