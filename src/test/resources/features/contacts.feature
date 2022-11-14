@@ -18,6 +18,7 @@ Feature: User should be on the related module
     And User clicks on the New contact button
     And User types "<contactFullName>" into the New contact placeholder
     And User types "<Company>" and "<Title>"
+    And Verify that "<contactFullName>" is seen on the middle column
     And User clicks on the phone type "<phoneType>" and sends the phone number "<phoneNumber>"
     And User clicks on the email type "<emailType>" and sends the emails "<email>"
     And User clicks on the "Post office box" and sends the "<POBox>" information
@@ -27,11 +28,14 @@ Feature: User should be on the related module
     And User clicks on the "City" and sends the "<City>" information
     And User clicks on the "State or province" and sends the "<State or province>" information
     And User clicks on the "Country" and sends the "<Country>" information
+    And User clicks on log out button
 
 
     Examples: Contacts information
       | contactFullName | Company   | Title   | phoneType | phoneNumber | emailType | email               | POBox | Address | Extended address          | Postal code | City    | State or province | Country |
       | Bill Gates      | Microsoft | Founder | Work      | 18776788033 | Work      | billgates@gmail.com | 36360 | Redmond | Washington, United States | 36360       | Redmond | Washington        | USA     |
+      | Elon Musk       | Tesla     | CEO     | Home      | 3558774455  | Other     | elonmusk@tesla.com  | 38400 | Florida | Florida, United States    | 36360       | Florida | Florida           | USA     |
+      | Nuray Mercan    | CheckOS   | Founder | Work      | 444144455   | Work      | nmercan@checkos.com | 36360 | Cankaya | Ankara, Turkey            | 36360       | Ankara  | Cankaya           | Turkey  |
 
 
 

@@ -28,6 +28,7 @@ public class LogOut_StepDefinitions {
 
     @When("User clicks on log out button")
     public void user_clicks_on_log_out_button() {
+        dashboardPage.settingsMenu.click();
         dashboardPage.logOutButton.click();
     }
 

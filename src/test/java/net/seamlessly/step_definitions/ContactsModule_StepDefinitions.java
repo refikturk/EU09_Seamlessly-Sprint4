@@ -54,4 +54,10 @@ public class ContactsModule_StepDefinitions {
     public void userClicksOnTheAndSendsTheInformation(String placeHolderName, String inputInformation) {
         contactsModule_page.addressPlaceHolders(placeHolderName,inputInformation);
     }
+
+    @And("Verify that {string} is seen on the middle column")
+    public void verifyThatIsSeenOnTheMiddleColumn(String contactFullName) {
+        contactsModule_page.verifyUserNameIsOnTheMiddleColumn(contactFullName);
+
+    }
 }
