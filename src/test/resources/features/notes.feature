@@ -36,3 +36,9 @@ Feature: User should be on the related module
     And User clicks the arrow button
     And user clicks Category button on the left side of the page under the New Note module
     Then User can create a new category name
+
+  Scenario: User can delete any note
+    When User click on the pencil icon top of the dashboard page
+    And User clicks three dots near the to be deleted note
+    And User clicks Delete note button
+    Then User can delete any note

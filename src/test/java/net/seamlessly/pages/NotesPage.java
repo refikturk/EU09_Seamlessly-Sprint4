@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-
 public class NotesPage extends BasePage {
 
     @FindBy(xpath = "//*[@id='appmenu']/li[7]/a")
@@ -38,7 +37,6 @@ public class NotesPage extends BasePage {
     @FindBy(xpath = "//p[@class='app-sidebar-header__subtitle']")
     public WebElement countOfWordsCharsText;
 
-
     @FindBy(id = "category")
     public WebElement category;
 
@@ -48,39 +46,37 @@ public class NotesPage extends BasePage {
     @FindBy(xpath = "//span[@title='Categories']")
     public WebElement categoriesModule;
 
-
     @FindBy(xpath = "//span[@title='animals']")
     public WebElement animalCategory;
 
+    @FindBy(xpath = "//span[@title='Hello World']/../..//button")
+    public WebElement deleteNoteThreeDots;
 
+    @FindBy(xpath = "//span[.='Delete note']")
+    public WebElement deleteModule;
 
-    public WebElement clickThreeDotByText(String text){
-        String xpath = "//span[@title='"+text+"']/../..//button//span";
+    @FindBy(xpath = "//span[@title='Hello World']")
+    public WebElement helloWorldText;
+
+    public WebElement clickThreeDotByText(String text) {
+        String xpath = "//span[@title='" + text + "']/../..//button//span";
         WebElement element = Driver.getDriver().findElement(By.xpath(xpath));
         return element;
     }
 
-    public void verifyTheTotalCountOfAllItems(){
+    public void verifyTheTotalCountOfAllItems() {
         //3 folders and 2 files
         //012345678901234567890
         String fullStatement = countOfWordsCharsText.getText();
-        int actualWordsCount =Integer.parseInt(fullStatement.substring(0,fullStatement.indexOf(' ')));
-        int actualCharsCount =Integer.parseInt(fullStatement.substring(fullStatement.indexOf(", ")+2,fullStatement.lastIndexOf(" c")));
+        int actualWordsCount = Integer.parseInt(fullStatement.substring(0, fullStatement.indexOf(' ')));
+        int actualCharsCount = Integer.parseInt(fullStatement.substring(fullStatement.indexOf(", ") + 2, fullStatement.lastIndexOf(" c")));
         System.out.println("actualWordsCount = " + actualWordsCount);
         System.out.println("actualCharsCount = " + actualCharsCount);
 
-Assert.assertTrue(fullStatement.equals(actualWordsCount + " words, " + actualCharsCount +" characters"));
+        Assert.assertTrue(fullStatement.equals(actualWordsCount + " words, " + actualCharsCount + " characters"));
 
 
     }
-
-
-
-
-
-
-
-
 
 
 }

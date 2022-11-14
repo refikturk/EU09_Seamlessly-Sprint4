@@ -13,9 +13,10 @@ import org.openqa.selenium.By;
 public class NotesStepDefs {
 
     NotesPage notesPage = new NotesPage();
+
     @Given("User click on the pencil icon top of the dashboard page")
     public void user_click_on_the_pencil_icon_top_of_the_dashboard_page() {
-      notesPage.pencilIcon.click();
+        notesPage.pencilIcon.click();
     }
 
     @When("User clicks on the New Note module")
@@ -25,7 +26,7 @@ public class NotesStepDefs {
 
     @Then("User can write notes on the page")
     public void user_can_write_notes_on_the_page() {
-
+        BrowserUtils.waitFor(2);
         notesPage.noteWritingPage.sendKeys("Hello World!");
         Assert.assertEquals(notesPage.noteWritingPage.getText(), "Hello World!");
     }
@@ -44,10 +45,10 @@ public class NotesStepDefs {
 
     @Then("User can add any note to the favorites")
     public void user_can_add_any_note_to_the_favorites() {
-       if(Driver.getDriver().findElements(By.xpath("//div[@class='app-navigation-entry-icon nav-icon icon-starred']"))
-               .size() > 0) {
-           notesPage.starIcon.isDisplayed();
-       }
+        if (Driver.getDriver().findElements(By.xpath("//div[@class='app-navigation-entry-icon nav-icon icon-starred']"))
+                .size() > 0) {
+            notesPage.starIcon.isDisplayed();
+        }
 
     }
 
@@ -58,8 +59,8 @@ public class NotesStepDefs {
     }
 
     */
-    
-    
+
+
     @And("User clicks the three dots near the image icon")
     public void userClicksTheThreeDotsNearTheImageIcon() {
         notesPage.detailsThreeDots.click();
@@ -73,7 +74,7 @@ public class NotesStepDefs {
 
     @Then("User can see the number of letters and words")
     public void userCanSeeTheNumberOfLettersAndWords() {
-       notesPage.verifyTheTotalCountOfAllItems();
+        notesPage.verifyTheTotalCountOfAllItems();
     }
 
     @And("User write a category name inside the text box")
@@ -94,11 +95,27 @@ public class NotesStepDefs {
 
     @Then("User can create a new category name")
     public void userCanCreateANewCategoryName() {
-        if(Driver.getDriver().findElements(By.xpath("//span[@title='animals']"))
+        if (Driver.getDriver().findElements(By.xpath("//span[@title='animals']"))
                 .size() > 0) {
             notesPage.animalCategory.isDisplayed();
         }
     }
 
 
+    @And("User clicks three dots near the to be deleted note")
+    public void userClicksThreeDotsNearTheToBeDeletedNote() {
+        BrowserUtils.clickWithJS(notesPage.deleteNoteThreeDots);
+    }
+
+    @And("User clicks Delete note button")
+    public void userClicksDeleteNoteButton() {
+        notesPage.deleteModule.click();
+    }
+
+    @Then("User can delete any note")
+    public void userCanDeleteAnyNote() {
+        if(Driver.getDriver().findElements(By.xpath("//span[@title='Hello World']")).size() == 0){
+         Assert.assertFalse(notesPage.helloWorldText.isDisplayed());
+        }
+    }
 }
