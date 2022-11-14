@@ -55,8 +55,8 @@ public class DeletedFiles_steps {
     public void userChecksTheCheckboxNearThe(String arg0) {
         for (WebElement each : deletedFilesPage.allFiles) {
             if (each.getAttribute("data-file").contains(arg0)) {
-                int index = deletedFilesPage.allFiles.indexOf(each)+1;
-                Driver.getDriver().findElement(By.xpath("((//tbody[@id='fileList'])[1]//tr)["+index+"]/td")).click();
+                int index = deletedFilesPage.allFiles.indexOf(each) + 1;
+                Driver.getDriver().findElement(By.xpath("((//tbody[@id='fileList'])[1]//tr)[" + index + "]/td")).click();
 
             }
 
@@ -89,14 +89,15 @@ public class DeletedFiles_steps {
         BrowserUtils.sleep(3);
         deletedFilesPage.deletedButton.click();
     }
+
     @Then("user sees files ordered from the oldest to the newest")
     public void userSeesFilesOrderedFromTheOldestToTheNewest() {
-        ArrayList<Long> deletedDates=new ArrayList<>();
-        for(WebElement each: deletedFilesPage.deletedFiles){
-         deletedDates.add(Long.valueOf(each.getAttribute("data-etag")));
+        ArrayList<Long> deletedDates = new ArrayList<>();
+        for (WebElement each : deletedFilesPage.deletedFiles) {
+            deletedDates.add(Long.valueOf(each.getAttribute("data-etag")));
         }
-        ArrayList<Long> copy=new ArrayList<>(deletedDates);
-       copy.sort(Comparator.naturalOrder());
+        ArrayList<Long> copy = new ArrayList<>(deletedDates);
+        copy.sort(Comparator.naturalOrder());
 
         Assert.assertTrue(deletedDates.equals(copy));
 
@@ -104,11 +105,11 @@ public class DeletedFiles_steps {
 
     @Then("user sees files ordered from the newest to the oldest")
     public void userSeesFilesOrderedFromTheNewestToTheOldest() {
-        ArrayList<Long> deletedDates=new ArrayList<>();
-        for(WebElement each: deletedFilesPage.deletedFiles){
+        ArrayList<Long> deletedDates = new ArrayList<>();
+        for (WebElement each : deletedFilesPage.deletedFiles) {
             deletedDates.add(Long.valueOf(each.getAttribute("data-etag")));
         }
-        ArrayList<Long> copy=new ArrayList<>(deletedDates);
+        ArrayList<Long> copy = new ArrayList<>(deletedDates);
         copy.sort(Comparator.naturalOrder());
         copy.sort(Comparator.reverseOrder());
         Assert.assertTrue(deletedDates.equals(copy));
@@ -120,26 +121,22 @@ public class DeletedFiles_steps {
     public void userClicksTheNameButtonOverTheFiles() {
         deletedFilesPage.nameButton.click();
 
-
     }
 
     @Then("user sees files ordered from Z-to-A")
     public void userSeesFilesOrderedFromZToA() {
         DeletedFilesPage.deletePermanently();
-        ArrayList<String> namesList=new ArrayList<>();
-//        for(WebElement each: deletedFilesPage.deletedFiles){
-//            namesList.add(each.getAttribute("data-path"));
-//        }
-        for(WebElement each: deletedFilesPage.deletedFilesNames){
+        ArrayList<String> namesList = new ArrayList<>();
+
+        for (WebElement each : deletedFilesPage.deletedFilesNames) {
             namesList.add(each.getText());
         }
-        ArrayList<String> copy=new ArrayList<>(namesList);
-        System.out.println(namesList);
+
+        ArrayList<String> copy = new ArrayList<>(namesList);
+
         copy.sort(Comparator.naturalOrder());
-        System.out.println(copy);
         copy.sort(Comparator.reverseOrder());
 
-        System.out.println(copy);
         Assert.assertTrue(namesList.equals(copy));
 
     }
@@ -147,14 +144,13 @@ public class DeletedFiles_steps {
     @Then("user sees files ordered from A-to-Z")
     public void userSeesFilesOrderedFromAToZ() {
 
-        ArrayList<String> namesList=new ArrayList<>();
-//        for(WebElement each: deletedFilesPage.deletedFiles){
-//            namesList.add(each.getAttribute("data-path"));
-//        }
-        for(WebElement each: deletedFilesPage.deletedFilesNames){
+        ArrayList<String> namesList = new ArrayList<>();
+
+        for (WebElement each : deletedFilesPage.deletedFilesNames) {
             namesList.add(each.getText());
         }
-        ArrayList<String> copy=new ArrayList<>(namesList);
+
+        ArrayList<String> copy = new ArrayList<>(namesList);
         copy.sort(Comparator.naturalOrder());
         BrowserUtils.sleep(3);
         Assert.assertTrue(namesList.equals(copy));
@@ -170,14 +166,17 @@ public class DeletedFiles_steps {
         deletedFilesPage.allFilesTab.click();
 
     }
+
     @And("user checks the {string}")
     public void userChecksThe(String arg0) {
         deletedFilesPage.checkboxDeleted.click();
     }
+
     @And("user clicks the Actions for deleted over the list")
     public void userClicksTheActionsForDeletedOverTheList() {
         deletedFilesPage.deletedActions.click();
     }
+
     @When("user chooses the Restore option")
     public void userChoosesTheRestoreOption() {
         deletedFilesPage.restoreIcon.click();
@@ -192,10 +191,10 @@ public class DeletedFiles_steps {
     @Then("user sees the {string} disappears")
     public void userSeesTheDisappears(String arg0) {
         BrowserUtils.sleep(3);
-        boolean isDeleted=true;
+        boolean isDeleted = true;
         for (WebElement each : deletedFilesPage.deletedFiles) {
             if (each.getAttribute("data-path").contains(arg0)) {
-                isDeleted=false;
+                isDeleted = false;
             }
         }
         Assert.assertTrue(isDeleted);
@@ -208,8 +207,8 @@ public class DeletedFiles_steps {
         BrowserUtils.sleep(3);
         for (WebElement each : deletedFilesPage.allFiles) {
             if (each.getAttribute("data-file").contains("File to delete")) {
-                int index = deletedFilesPage.allFiles.indexOf(each)+1;
-                Driver.getDriver().findElement(By.xpath("((//tbody[@id='fileList'])[1]//tr)["+index+"]/td")).click();
+                int index = deletedFilesPage.allFiles.indexOf(each) + 1;
+                Driver.getDriver().findElement(By.xpath("((//tbody[@id='fileList'])[1]//tr)[" + index + "]/td")).click();
 
             }
         }
@@ -217,7 +216,6 @@ public class DeletedFiles_steps {
         deletedFilesPage.actionsDelete.click();
         deletedFilesPage.deletedFilesTab.click();
         DeletedFilesPage.deletePermanently();
-
 
 
     }

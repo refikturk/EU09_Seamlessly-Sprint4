@@ -22,12 +22,12 @@ Feature: Deleted Files Tab Functionality under Files Module
     And user clicks the Actions dropdown over the list
     And user chooses the Delete option
 
-#@wip @SEAMLES-2516
+@SEAMLES-2516
   Scenario: User can see the most recent deleted file in the first line of the deleted files
     When user clicks on the Deleted files tab at the left side of the page
     Then user sees the "File to delete" in the first line of the list
 
-#@wip @SEAMLES-2518
+@SEAMLES-2518
   Scenario: User can order all the deleted files based on the date
     When user clicks on the Deleted files tab at the left side of the page
     And user clicks the Deleted button over the files (at the right)
@@ -35,7 +35,7 @@ Feature: Deleted Files Tab Functionality under Files Module
     When user clicks the Deleted button over the files (at the right)
     Then user sees files ordered from the newest to the oldest
 
-  @wip @SEAMLES-2519
+  @SEAMLES-2519
   Scenario: User can order alphabetically all the deleted files
     When user clicks on the Deleted files tab at the left side of the page
     And user clicks the Name button over the files
@@ -44,8 +44,7 @@ Feature: Deleted Files Tab Functionality under Files Module
     Then user sees files ordered from A-to-Z
 
 
-
-  #@wip @SEAMLES-2521
+  @SEAMLES-2521
   Scenario: User can restore any deleted file
     When user clicks on the Deleted files tab at the left side of the page
     And user checks the "File to delete"
@@ -58,7 +57,7 @@ Feature: Deleted Files Tab Functionality under Files Module
 
 
 
-#@wip @SEAMLES-2520
+@SEAMLES-2520
   Scenario: User can delete any deleted file permanently
     When user clicks on the Deleted files tab at the left side of the page
     And user checks the "File to delete"
