@@ -1,4 +1,4 @@
-@EAMLES-2496
+@SEAMLES-2496
 Feature: Deleted Files Tab Functionality under Files Module
   User Story:
   As a user, I should be able to see all deleted files
@@ -22,12 +22,12 @@ Feature: Deleted Files Tab Functionality under Files Module
     And user clicks the Actions dropdown over the list
     And user chooses the Delete option
 
-@SEAMLES-2516
+  @SEAMLES-2516
   Scenario: User can see the most recent deleted file in the first line of the deleted files
     When user clicks on the Deleted files tab at the left side of the page
     Then user sees the "File to delete" in the first line of the list
 
-@SEAMLES-2518
+  @SEAMLES-2518
   Scenario: User can order all the deleted files based on the date
     When user clicks on the Deleted files tab at the left side of the page
     And user clicks the Deleted button over the files (at the right)
@@ -56,8 +56,7 @@ Feature: Deleted Files Tab Functionality under Files Module
     And remains cleaned
 
 
-
-@SEAMLES-2520
+  @SEAMLES-2520
   Scenario: User can delete any deleted file permanently
     When user clicks on the Deleted files tab at the left side of the page
     And user checks the "File to delete"
