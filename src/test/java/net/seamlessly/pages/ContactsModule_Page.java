@@ -44,6 +44,9 @@ public class ContactsModule_Page extends BasePage {
     @FindBy(xpath = "(//input[@class='multiselect__input'])[2]")
     private WebElement emailDropDown;
 
+    @FindBy(xpath = "//input[@inputmode='email']")
+    private WebElement inputEmailPlaceHolder;
+
     @FindBy(xpath = "(//input[@class='multiselect__input'])[3]")
     private WebElement addressDropDown;
 
@@ -59,7 +62,19 @@ public class ContactsModule_Page extends BasePage {
         inputPhoneNumberPlaceHolder.sendKeys(phoneNumber);
     }
 
+    public void inputEmail(String emailType, String email){
+        BrowserUtils.waitForClickablility(emailDropDown,5).click();
+        WebElement mailType = Driver.getDriver().findElement(By.xpath("//*[@id=\"app-content-vue\"]/div/div/div[3]/div/section/div[2]/div/div/div/div[3]/ul/li//div[@title='"+emailType+"']"));
+        BrowserUtils.waitForVisibility(mailType, 2).click();
 
+        inputEmailPlaceHolder.click();
+        inputEmailPlaceHolder.sendKeys(email);
+    }
 
+    public void addressPlaceHolders(String placeHolderName, String inputInformation){
+        WebElement inputPlaceHolder = Driver.getDriver().findElement(By.xpath("//*[@id=\"app-content-vue\"]/div/div/div[3]/div/section/div[3]/div/div/div[normalize-space(text())='"+placeHolderName+"']"));
+        BrowserUtils.waitForClickablility(inputPlaceHolder,2).click();
+        inputPlaceHolder.sendKeys(inputInformation);
+    }
 
 }

@@ -47,5 +47,6 @@ public class ContactsModule_StepDefinitions {
 
     @And("User clicks on the email type {string} and sends the emails {string}")
     public void userClicksOnTheEmailTypeAndSendsTheEmails(String emailType, String email) {
+        contactsModule_page.inputEmail(emailType,email);
     }
 }
