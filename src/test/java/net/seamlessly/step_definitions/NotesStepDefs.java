@@ -6,7 +6,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.seamlessly.pages.NotesPage;
 import net.seamlessly.utilities.BrowserUtils;
+import net.seamlessly.utilities.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 public class NotesStepDefs {
 
@@ -32,9 +34,7 @@ public class NotesStepDefs {
     public void user_clicks_three_dots_near_the_already_written_note() {
 
         BrowserUtils.waitFor(2);
-       // BrowserUtils.waitForClickablility(notesPage.threeDots,10);
-         BrowserUtils.clickWithJS((notesPage.threeDots));
-       // notesPage.threeDots.click();
+        BrowserUtils.clickWithJS(notesPage.clickThreeDotByText("Arife"));
     }
 
     @And("User clicks Add to favorites button")
@@ -44,7 +44,11 @@ public class NotesStepDefs {
 
     @Then("User can add any note to the favorites")
     public void user_can_add_any_note_to_the_favorites() {
-        Assert.assertTrue(notesPage.starIcon.isDisplayed());
+       if(Driver.getDriver().findElements(By.xpath("//div[@class='app-navigation-entry-icon nav-icon icon-starred']"))
+               .size() > 0) {
+           notesPage.starIcon.isDisplayed();
+       }
+
     }
 
 
@@ -69,20 +73,32 @@ public class NotesStepDefs {
 
     @Then("User can see the number of letters and words")
     public void userCanSeeTheNumberOfLettersAndWords() {
-       Assert.assertTrue( notesPage.countOfWordsCharsText.getText().equals("2 words, 12 characters"));
+       notesPage.verifyTheTotalCountOfAllItems();
     }
 
-    @And("User write a category name inside the text box and clicks the arrow button")
-    public void userWriteACategoryNameInsideTheTextBoxAndClicksTheArrowButton() {
-        
+    @And("User write a category name inside the text box")
+    public void userWriteACategoryNameInsideTheTextBox() {
+        notesPage.category.sendKeys("animals");
+
+    }
+
+    @And("User clicks the arrow button")
+    public void userClicksTheArrowButton() {
+        notesPage.arrowIcon.click();
     }
 
     @And("user clicks Category button on the left side of the page under the New Note module")
     public void userClicksCategoryButtonOnTheLeftSideOfThePageUnderTheNewNoteModule() {
-        
+        BrowserUtils.clickWithJS(notesPage.categoriesModule);
     }
 
     @Then("User can create a new category name")
     public void userCanCreateANewCategoryName() {
+        if(Driver.getDriver().findElements(By.xpath("//span[@title='animals']"))
+                .size() > 0) {
+            notesPage.animalCategory.isDisplayed();
+        }
     }
+
+
 }

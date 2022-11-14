@@ -28,10 +28,11 @@ Feature: User should be on the related module
     And User clicks Details button
     Then User can see the number of letters and words
 
-    Scenario: User can create a new category by passing a new category name from inside the notes details
-      When User click on the pencil icon top of the dashboard page
-      And User clicks the three dots near the image icon
-      And User clicks Details button
-      And User write a category name inside the text box and clicks the arrow button
-      And user clicks Category button on the left side of the page under the New Note module
-      Then User can create a new category name
+  Scenario: User can create a new category by passing a new category name from inside the notes details
+    When User click on the pencil icon top of the dashboard page
+    And User clicks the three dots near the image icon
+    And User clicks Details button
+    And User write a category name inside the text box
+    And User clicks the arrow button
+    And user clicks Category button on the left side of the page under the New Note module
+    Then User can create a new category name
