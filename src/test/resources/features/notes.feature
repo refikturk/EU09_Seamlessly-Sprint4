@@ -24,6 +24,7 @@ Feature: User should be on the related module
   Scenario: User can see the number of letters and words that the
   note includes under the note title when clicked on the details of the note
     When User click on the pencil icon top of the dashboard page
+    And User clicks on the any note
     And User clicks the three dots near the image icon
     And User clicks Details button
     Then User can see the number of letters and words

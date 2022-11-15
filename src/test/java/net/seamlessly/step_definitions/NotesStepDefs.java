@@ -63,7 +63,8 @@ public class NotesStepDefs {
 
     @And("User clicks the three dots near the image icon")
     public void userClicksTheThreeDotsNearTheImageIcon() {
-        notesPage.detailsThreeDots.click();
+       BrowserUtils.waitFor(2);
+        BrowserUtils.clickWithJS(notesPage.detailsThreeDots);
     }
 
     @And("User clicks Details button")
@@ -117,5 +118,10 @@ public class NotesStepDefs {
         if(Driver.getDriver().findElements(By.xpath("//span[@title='Hello World']")).size() == 0){
          Assert.assertFalse(notesPage.helloWorldText.isDisplayed());
         }
+    }
+
+    @And("User clicks on the any note")
+    public void userClicksOnTheAnyNote() {
+       BrowserUtils.clickWithJS( notesPage.helloWorldText);
     }
 }

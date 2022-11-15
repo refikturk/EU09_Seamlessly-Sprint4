@@ -28,7 +28,7 @@ public class NotesPage extends BasePage {
     public WebElement starIcon;
 
 
-    @FindBy(xpath = "(//div[@style='display: inline-block;']/button/span)[12]")
+    @FindBy(xpath = "(//div[@style='display: inline-block;']/button/span)[11]")
     public WebElement detailsThreeDots;
 
     @FindBy(xpath = "//button//span[.='Details']")
