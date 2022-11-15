@@ -18,9 +18,6 @@ Feature: User should be on the related module
     And User clicks on the New contact button
     And User types "<contactFullName>" into the New contact placeholder
     And User types "<Company>" and "<Title>"
-    And Verify that "<contactFullName>" is seen on the middle column
-    And User clicks on the phone type "<phoneType>" and sends the phone number "<phoneNumber>"
-    And User clicks on the email type "<emailType>" and sends the emails "<email>"
     And User clicks on the "Post office box" and sends the "<POBox>" information
     And User clicks on the "Address" and sends the "<Address>" information
     And User clicks on the "Extended address" and sends the "<Extended address>" information
@@ -28,15 +25,37 @@ Feature: User should be on the related module
     And User clicks on the "City" and sends the "<City>" information
     And User clicks on the "State or province" and sends the "<State or province>" information
     And User clicks on the "Country" and sends the "<Country>" information
-    ##And User clicks on log out button
+    And User clicks on the phone type "<phoneType>" and sends the phone number "<phoneNumber>"
+    And User clicks on the email type "<emailType>" and sends the emails "<email>"
+    Then Verify that "<contactFullName>" is seen on the middle column
+    And User clicks on log out button
 
 
 
     Examples: Contacts information
-      | contactFullName | Company   | Title   | phoneType | phoneNumber | emailType | email               | POBox | Address | Extended address          | Postal code | City    | State or province | Country |
-      | Bill Gates      | Microsoft | Founder | Work      | 18776788033 | Work      | billgates@gmail.com | 36360 | Redmond | Washington, United States | 36360       | Redmond | Washington        | USA     |
-      | Elon Musk       | Tesla     | CEO     | Home      | 3558774455  | Other     | elonmusk@tesla.com  | 38400 | Florida | Florida, United States    | 36360       | Florida | Florida           | USA     |
-     ##| Nuray Mercan    | CheckOS   | Founder | Work      | 444144455   | Work      | nmercan@checkos.com | 36360 | Cankaya | Ankara, Turkey            | 36360       | Ankara  | Cankaya           | Turkey  |
+      | contactFullName | Company   | Title   | phoneType | phoneNumber | emailType | email               | POBox | Address | Extended address | Postal code | City    | State or province | Country |
+      | Bill Gates      | Microsoft | Founder | Work      | 4441122     | Work      | billgates@gmail.com | 36360 | Redmond | Washington       | 36360       | Redmond | Washington        | USA     |
+      | Elon Musk       | Tesla     | CEO     | Home      | 3550555     | Other     | elonmusk@tesla.com  | 38400 | Florida | Florida          | 36360       | Florida | Florida           | USA     |
+      | Nuray Mercan    | CheckOS   | Founder | Work      | 312555411   | Work      | nmercan@checkos.com | 36360 | Cankaya | Ankara, Turkey   | 36360       | Ankara  | Cankaya           | Turkey  |
+
+  @wipContacts2
+  Scenario: User should see all the contacs as a list inside the middle column
+  and the total number of contacts near the "All Contacts" tab
+    When User clicks on "Contacts" module
+    Then  Verify that counts of contacts should be equal to the number next to Not grouped tab
+
+    Scenario: User should be able to change the profile picture of any contact with a
+    previously uploaded picture by using “Choose from files” option
+      When User clicks on "Contacts" module
+      And User selects the contact "<contactName>" from middle column
+      And User clicks on the picture icon
+      And User clicks on "Choose from Files" button
+      And User clicks on "Notes" folder
+      And User selects a picture to change the profile picture
+      Then  Verify that selected picture is displayed on the contact profile picture
+
+
+
 
 
 

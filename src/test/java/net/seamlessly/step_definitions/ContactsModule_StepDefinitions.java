@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.seamlessly.pages.ContactsModule_Page;
+import org.junit.Assert;
 
 public class ContactsModule_StepDefinitions {
 
@@ -57,7 +58,13 @@ public class ContactsModule_StepDefinitions {
 
     @And("Verify that {string} is seen on the middle column")
     public void verifyThatIsSeenOnTheMiddleColumn(String contactFullName) {
-        contactsModule_page.verifyUserNameIsOnTheMiddleColumn(contactFullName);
+        //contactsModule_page.verifyUserNameIsOnTheMiddleColumn(contactFullName);
+        Assert.assertTrue(contactsModule_page.verifyUserNameIsOnTheMiddleColumn().contains(contactFullName));
 
+    }
+
+    @Then("Verify that counts of contacts should be equal to the number next to Not grouped tab")
+    public void verifyThatCountsOfContactsShouldBeEqualToTheNumberNextToNotGroupedTab() {
+        Assert.assertEquals(contactsModule_page.verifyUserNameIsOnTheMiddleColumn().size() , contactsModule_page.theNumberOfContacts());
     }
 }
