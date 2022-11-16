@@ -140,6 +140,7 @@ public class ContactsModule_Page extends BasePage {
 
     @FindBy(xpath = "//ul[@id='menu-linfp']//span[contains(text(),' ')]")
     private List<WebElement> listOfPictureMenuActions;
+    //
 
 
 
