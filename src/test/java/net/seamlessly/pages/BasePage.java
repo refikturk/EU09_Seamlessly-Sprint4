@@ -1,5 +1,6 @@
 package net.seamlessly.pages;
 
+import net.seamlessly.utilities.BrowserUtils;
 import net.seamlessly.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -48,6 +49,7 @@ public abstract class BasePage {
 
 
     public void navigateToModule(String moduleName){
+        BrowserUtils.sleep(2);
         WebElement moduleButton = Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']//li[@data-id='"+moduleName.toLowerCase()+"']"));
         moduleButton.click();
     }
