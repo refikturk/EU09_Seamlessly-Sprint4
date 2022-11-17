@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         glue = "net/seamlessly/step_definitions",
         dryRun = false,
         stepNotifications = true,
-        tags = "@wipContacts2",
+        tags = "@SEAMLES-2506",
         publish = true
 
 
