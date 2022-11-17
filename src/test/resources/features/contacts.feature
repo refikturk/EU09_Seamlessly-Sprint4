@@ -44,15 +44,17 @@ Feature: User should be on the related module
     When User clicks on "Contacts" module
     Then  Verify that counts of contacts should be equal to the number next to Not grouped tab
 
-    Scenario: User should be able to change the profile picture of any contact with a
-    previously uploaded picture by using “Choose from files” option
-      When User clicks on "Contacts" module
-      And User selects the contact "<contactName>" from middle column
-      And User clicks on the picture icon
-      And User clicks on "Choose from Files" button
-      And User clicks on "Notes" folder
-      And User selects a picture to change the profile picture
-      Then  Verify that selected picture is displayed on the contact profile picture
+  Scenario: User should be able to change the profile picture of any contact with a
+  previously uploaded picture by using “Choose from files” option
+    When User clicks on "Contacts" module
+    And User selects the contact "<contactFullName>" from middle column
+    And User clicks on the picture icon
+    And User clicks on "Choose from Files" button
+    And User selects a picture "<fileName>" to change the profile picture
+    Then  Verify that selected picture is displayed on the contact profile picture
+      | contactFullName | fileName    |
+      | Bill Gates      | Bill_Gates1 |
+      | Elon Musk       | elon_musk   |
 
 
 

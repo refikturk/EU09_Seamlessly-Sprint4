@@ -57,4 +57,12 @@ public class ProfilePage extends BasePage{
 
    @FindBy(xpath = "//div[@class='displayname__actions-container']")
     public WebElement nameHolder;
+
+   @FindBy(xpath = "//label[@for='email']")
+    public WebElement emailTrue;
+
+   @FindBy(xpath = "//*[@id=\"personal-settings-avatar-container\"]/div[2]/h3")
+    public WebElement ProfilePicture;
+   //
+
 }

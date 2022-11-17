@@ -120,11 +120,11 @@ public class ContactsModule_Page extends BasePage {
 
     }
 
-    public int theNumberOfContacts(){
+    public int theNumberOfContacts() {
         String getTextFromWebElement = StringUtils.deleteWhitespace(contactNumberCounter.getText());
         Integer numberOfContacts = parseInt(getTextFromWebElement);
         System.out.println("numberOfContacts = " + numberOfContacts);
-        return  numberOfContacts;
+        return numberOfContacts;
 
 
     }
@@ -142,12 +142,46 @@ public class ContactsModule_Page extends BasePage {
     private List<WebElement> listOfPictureMenuActions;
     //
 
+    @FindBy(xpath = "//div[@role='group']//*[contains(@aria-label,'Avatar of ')]/..")
+    private List<WebElement> contactSectionInTheMiddleColumn;
+
+    public void selectContactFromMiddleSection(String contactFullName) {
+        WebElement selectContact = Driver.getDriver().findElement(By.xpath("//div[@role='group']//*[contains(@aria-label,'Avatar of " + contactFullName + " ')]/.."));
+        selectContact.click();
+
+    }
+
+    public void clickOnPictureMenuIcon(){
+        BrowserUtils.waitForClickablility(pictureMenuIcon, 2).click();
+    }
+
+    public void clictToUploadPicture(String action) {
+
+        if (action.equalsIgnoreCase("upload a new picture")) {
+            Driver.getDriver().findElement(By.xpath("//ul[@id='menu-linfp']//span[contains(text(),'Upload a new picture')]")).click();
+
+        } else if (action.equalsIgnoreCase("choose from files")) {
+            Driver.getDriver().findElement(By.xpath("//ul[@id='menu-linfp']//span[contains(text(),'choose from files')]")).click();
+
+        }else {
+            Driver.getDriver().findElement(By.xpath("//ul[@id='menu-linfp']//span[contains(text(),'Get from gravatar')]")).click();
+        }
 
 
+    }
 
+    //
 
+    @FindBy(xpath = "//button[@class='primary']")
+    private WebElement chooseButton;
 
+    public void selectPictureFromFiles(String pictureName){
+        WebElement selectedPicture = Driver.getDriver().findElement(By.xpath("//tr[@data-entryname='"+pictureName+"']"));
+        selectedPicture.click();
+        BrowserUtils.waitForVisibility(chooseButton,2);
+        chooseButton.click();
 
+    }
 
 
 }

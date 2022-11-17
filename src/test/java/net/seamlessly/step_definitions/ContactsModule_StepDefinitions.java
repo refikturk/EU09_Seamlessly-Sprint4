@@ -43,17 +43,17 @@ public class ContactsModule_StepDefinitions {
 
     @And("User clicks on the phone type {string} and sends the phone number {string}")
     public void userClicksOnThePhoneTypeAndSendsThePhoneNumber(String phoneType, String phoneNumber) {
-        contactsModule_page.inputPhoneNumber(phoneType,phoneNumber);
+        contactsModule_page.inputPhoneNumber(phoneType, phoneNumber);
     }
 
     @And("User clicks on the email type {string} and sends the emails {string}")
     public void userClicksOnTheEmailTypeAndSendsTheEmails(String emailType, String email) {
-        contactsModule_page.inputEmail(emailType,email);
+        contactsModule_page.inputEmail(emailType, email);
     }
 
     @And("User clicks on the {string} and sends the {string} information")
     public void userClicksOnTheAndSendsTheInformation(String placeHolderName, String inputInformation) {
-        contactsModule_page.addressPlaceHolders(placeHolderName,inputInformation);
+        contactsModule_page.addressPlaceHolders(placeHolderName, inputInformation);
     }
 
     @And("Verify that {string} is seen on the middle column")
@@ -65,6 +65,30 @@ public class ContactsModule_StepDefinitions {
 
     @Then("Verify that counts of contacts should be equal to the number next to Not grouped tab")
     public void verifyThatCountsOfContactsShouldBeEqualToTheNumberNextToNotGroupedTab() {
-        Assert.assertEquals(contactsModule_page.verifyUserNameIsOnTheMiddleColumn().size() , contactsModule_page.theNumberOfContacts());
+        Assert.assertEquals(contactsModule_page.verifyUserNameIsOnTheMiddleColumn().size(), contactsModule_page.theNumberOfContacts());
+    }
+
+    @And("User selects the contact {string} from middle column")
+    public void userSelectsTheContactFromMiddleColumn(String contactFullName) {
+        contactsModule_page.selectContactFromMiddleSection(contactFullName);
+    }
+
+    @And("User clicks on the picture icon")
+    public void userClicksOnThePictureIcon() {
+        contactsModule_page.clickOnPictureMenuIcon();
+    }
+
+    @And("User clicks on {string} button")
+    public void userClicksOnButton(String buttonName) {
+        contactsModule_page.clictToUploadPicture(buttonName);
+    }
+
+    @And("User selects a picture {string} to change the profile picture")
+    public void userSelectsAPictureToChangeTheProfilePicture(String pictureName) {
+        contactsModule_page.selectPictureFromFiles(pictureName);
+    }
+
+    @Then("Verify that selected picture is displayed on the contact profile picture")
+    public void verifyThatSelectedPictureIsDisplayedOnTheContactProfilePicture() {
     }
 }
