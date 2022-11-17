@@ -170,6 +170,8 @@ public class ContactsModule_Page extends BasePage {
 
     }
 
+    //
+
     @FindBy(xpath = "//button[@class='primary']")
     private WebElement chooseButton;
 
