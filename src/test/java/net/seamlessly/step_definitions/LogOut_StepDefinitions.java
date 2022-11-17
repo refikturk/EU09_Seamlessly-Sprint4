@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.seamlessly.pages.Dashboard_Page;
 import net.seamlessly.pages.LoginPage;
+import net.seamlessly.utilities.BrowserUtils;
 import net.seamlessly.utilities.ConfigurationReader;
 import net.seamlessly.utilities.Driver;
 import org.junit.Assert;
@@ -28,6 +29,8 @@ public class LogOut_StepDefinitions {
 
     @When("User clicks on log out button")
     public void user_clicks_on_log_out_button() {
+        BrowserUtils.sleep(8);
+        dashboardPage.settingsMenu.click();
         dashboardPage.logOutButton.click();
     }
 
