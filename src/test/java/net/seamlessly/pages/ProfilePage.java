@@ -38,4 +38,5 @@ public class ProfilePage extends BasePage{
 
    @FindBy(xpath = "//*[@id=\"personal-settings-avatar-container\"]/div[2]/h3")
     public WebElement ProfilePicture;
+   //
 }
