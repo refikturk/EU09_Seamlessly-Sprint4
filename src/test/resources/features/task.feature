@@ -7,12 +7,12 @@ Feature: User should be on the related module
     And user types valid password to "Employee123"
     Then user clicks on log in button and lands on the dashboard page
 
-  @wip
+@wipELMAS #SMOKETEST
   Scenario: User can create a new list of tasks
     Given User clicks on the tasks icon the top of the dashboard page
-    When User clicks on the new list module
-    And user types a new list of task name "SCHOOL"
-    Then user can see new list name of task
+    When User clicks on the add list module
+    And user types a new list  name "UNIVERSITY"
+    Then user can see the new list name
 
   Scenario: User can create a new task name
     When user clicks new task name part
