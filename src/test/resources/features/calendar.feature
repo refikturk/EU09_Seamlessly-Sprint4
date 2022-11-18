@@ -17,7 +17,7 @@ Feature: US-006 Calendar Module Functionality [Automation-S4]
     And User clicks the Day Button
     Then Verify that user can view Daily Calendar Module Page
 
-  @SEAMLES-2510
+  @SEAMLES-2510 #SMOKETEST
   Scenario: Verify that user can view Weekly calendar module
 
     When User clicks on "calendar" module

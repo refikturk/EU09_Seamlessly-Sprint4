@@ -35,7 +35,7 @@ Feature: User should be on the related module
     And user write phone number "05064251472"
     Then user see verify that phone number info as private under Profile Settings page
 
-  @SEAMLES-2505
+  @SEAMLES-2505 #SMOKETEST
   Scenario: User can see the current local time under the Local dropdown
     When user select local time under the local dropdown
     Then user see verify that current local time "Turkish" under the Local dropdown
