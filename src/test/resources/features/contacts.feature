@@ -26,8 +26,6 @@ Feature: User should be on the related module
     Then Verify that "<contactFullName>" is seen on the middle column
     And User clicks on log out button
 
-
-
     Examples: Contacts information
       | contactFullName | Company   | Title   | phoneType | phoneNumber | emailType | email               | POBox | Address | Extended address | Postal code | City    | State or province | Country |
       | Bill Gates      | Microsoft | Founder | Work      | 4441122     | Work      | billgates@gmail.com | 36360 | Redmond | Washington       | 36360       | Redmond | Washington        | USA     |
@@ -35,7 +33,7 @@ Feature: User should be on the related module
       | Nuray Mercan    | CheckOS   | Founder | Work      | 312555411   | Work      | nmercan@checkos.com | 36360 | Cankaya | Ankara, Turkey   | 36360       | Ankara  | Cankaya           | Turkey  |
 
   @wipContacts2
-  Scenario: User should see all the contacs as a list inside the middle column
+  Scenario: User should see all the contacts as a list inside the middle column
   and the total number of contacts near the "All Contacts" tab
     When User clicks on "Contacts" module
     Then  Verify that counts of contacts should be equal to the number next to Not grouped tab
