@@ -34,6 +34,7 @@ Feature: User should be on the related module
     When User clicks on "Files" module
     And User clicks Toggle view button
     Then User should see the Files and Folders view order has changed
+    Then User clicks Toggle view button again
 
   @SEAMLES-2536
   Scenario: User can select all the files at once and see the

@@ -27,6 +27,9 @@ public class FolderPage extends BasePage {
     @FindBy(xpath = "//label[@id='view-toggle']")
     public WebElement toggleViewButton;
 
+    @FindBy (xpath= "//label[@for='showgridview']")
+    public WebElement toggleViewButton2;
+
     @FindBy(xpath = "//label[@for='select_all_files']")
     private WebElement selectAllCheckBox;
 

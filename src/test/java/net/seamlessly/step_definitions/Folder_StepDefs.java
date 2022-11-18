@@ -40,7 +40,11 @@ public class Folder_StepDefs {
         BrowserUtils.waitFor(3);
         folderPage.toggleViewButton.click();
         BrowserUtils.sleep(10);
-
+    }
+    @Then("User clicks Toggle view button again")
+    public void userClicksToggleViewButtonAgain() {
+        BrowserUtils.waitFor(3);
+        folderPage.toggleViewButton2.click();
     }
     @Then("User should see the Files and Folders view order has changed")
     public void userShouldSeeTheFilesAndFoldersViewOrderHasChanged() {
