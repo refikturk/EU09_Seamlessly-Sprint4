@@ -7,7 +7,28 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static net.seamlessly.utilities.BrowserUtils.waitForClickablility;
+import static org.junit.Assert.assertTrue;
+
 public class FolderPage extends BasePage {
+
+    @FindBy(xpath = "//a[@class=\'name sort columntitle\']")
+    public WebElement NameButton;
+
+    @FindBy(xpath="//span[.=\'amy sheryl\']")
+    public WebElement verifyFolderView;
+
+    @FindBy(xpath = "//a[@class='size sort columntitle']//span[.='Size']")
+    public WebElement SizeButton;
+
+    @FindBy(xpath= "//th[@class='column-mtime']//span[.='Modified']")
+    public WebElement ModifiedButton;
+
+    @FindBy(xpath = "//label[@id='view-toggle']")
+    public WebElement toggleViewButton;
+
+    @FindBy (xpath= "//label[@for='showgridview']")
+    public WebElement toggleViewButton2;
 
     @FindBy(xpath = "//label[@for='select_all_files']")
     private WebElement selectAllCheckBox;
@@ -27,10 +48,12 @@ public class FolderPage extends BasePage {
         String fullStatement = totalCountOfFoldersFiles.getText();
         int actualFolderCount =Integer.parseInt(fullStatement.substring(0,fullStatement.indexOf(' ')));
         int actualFilesCount =Integer.parseInt(fullStatement.substring(fullStatement.indexOf("d ")+2,fullStatement.lastIndexOf(" f")));
+
         System.out.println("actualFolderCount = " + actualFolderCount);
         System.out.println("actualFilesCount = " + actualFilesCount);
         int expectedFolderCount = getFoldersCount();
         int expectedFilesCount = getFilesCount();
+
         System.out.println("expectedFolderCount = " + expectedFolderCount);
         System.out.println("expectedFilesCount = " + expectedFilesCount);
 
@@ -53,5 +76,6 @@ public class FolderPage extends BasePage {
         BrowserUtils.clickWithJS(selectAllCheckBox);
         BrowserUtils.sleep(2);
     }
+
 }
 
