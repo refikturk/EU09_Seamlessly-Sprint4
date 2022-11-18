@@ -1,3 +1,4 @@
+@contactsModule
 Feature: User should be on the related module
 
   Background: User should be on the dashboard page with valid credentials
@@ -6,11 +7,6 @@ Feature: User should be on the related module
     And user types valid password to "Employee123"
     Then user clicks on log in button and lands on the dashboard page
 
-
-  Scenario: User is on the contacts module
-    When User clicks on "CONTACTS" module
-    Then  User clicks on "Settings" module from the right side
-    Then  User clicks on "Logout" button from profile menu
 
   @wipContacts
   Scenario Outline: User should be able to create new contact
@@ -44,7 +40,8 @@ Feature: User should be on the related module
     When User clicks on "Contacts" module
     Then  Verify that counts of contacts should be equal to the number next to Not grouped tab
 
-  Scenario: User should be able to change the profile picture of any contact with a
+  @wipContacts3
+  Scenario Outline: User should be able to change the profile picture of any contact with a
   previously uploaded picture by using “Choose from files” option
     When User clicks on "Contacts" module
     And User selects the contact "<contactFullName>" from middle column
@@ -52,9 +49,12 @@ Feature: User should be on the related module
     And User clicks on "Choose from Files" button
     And User selects a picture "<fileName>" to change the profile picture
     Then  Verify that selected picture is displayed on the contact profile picture
+    Examples:
       | contactFullName | fileName    |
-      | Bill Gates      | Bill_Gates1 |
-      | Elon Musk       | elon_musk   |
+      | Elon Musk       | Bill_Gates1.jpg |
+
+
+
 
 
 

@@ -91,4 +91,14 @@ public class ContactsModule_StepDefinitions {
     @Then("Verify that selected picture is displayed on the contact profile picture")
     public void verifyThatSelectedPictureIsDisplayedOnTheContactProfilePicture() {
     }
+
+    @And("User select Elon musk from middle column")
+    public void userSelectElonMuskFromMiddleColumn() {
+        contactsModule_page.selectContactFromMiddleSection("Elon Musk");
+    }
+
+    @And("User select {string} from middle column")
+    public void userSelectFromMiddleColumn(String contactName) {
+        contactsModule_page.selectContactFromMiddleSection(contactName);
+    }
 }
