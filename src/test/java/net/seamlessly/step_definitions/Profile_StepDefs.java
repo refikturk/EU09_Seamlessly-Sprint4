@@ -19,22 +19,16 @@ public class Profile_StepDefs {
 
     @When("user see fullname {string}")
     public void user_see_fullname(String string) {
-        Driver.getDriver().get("https://qa.seamlessly.net/index.php/settings/user");
-        BrowserUtils.waitFor(10);
-        Assert.assertTrue(profilePage.nameHolder.getText().contains("Full name"));
+        profilePage.fullNameVerify();
 
     }
     @When("user see email {string}")
     public void user_see_email(String string) {
-        BrowserUtils.waitFor(10);
-        Assert.assertTrue(profilePage.emailTrue.getText().contains("Email"));
+        profilePage.emailTrueVerify();
     }
     @When("user see phone number {string}")
     public void user_see_phone_number(String string) {
-        profilePage.phone.sendKeys("05064251472");
-        BrowserUtils.waitFor(10);
-        BrowserUtils.sleep(5);
-        Assert.assertTrue(profilePage.phone.getText().contains("05064251472"));
+       profilePage.phoneVerify();
     }
 
     @Then("user see verify that  titles inside personal info")
@@ -58,24 +52,17 @@ public class Profile_StepDefs {
     @Then("user see verify that  new full name")
     public void user_see_verify_that_new_full_name() {
 
-        BrowserUtils.waitFor(10);
-        Assert.assertTrue(profilePage.nameHolder.getText().contains("Full name"));
-        System.out.println("user see verify that  new full name");
+       profilePage.nameChangeVerify();
     }
 
     @When("user click private button on phone number button")
     public void user_click_private_button_on_phone_number_button() {
-        Driver.getDriver().get("https://qa.seamlessly.net/index.php/settings/user");
-        BrowserUtils.waitFor(15);
-        profilePage.menuItem.click();
-        profilePage.btnPrivate.click();
-        BrowserUtils.sleep(10);
+        profilePage.PrivatePhoneVerify();
     }
 
     @When("user write phone number {string}")
     public void user_write_phone_number(String string) {
-        profilePage.phone.sendKeys("05064251472");
-        BrowserUtils.sleep(10);
+        profilePage.phonePrivate();
     }
 
     @Then("user see verify that phone number info as private under Profile Settings page")
@@ -92,10 +79,6 @@ public class Profile_StepDefs {
     }
     @Then("user see verify that current local time {string} under the Local dropdown")
     public void user_see_verify_that_current_local_time_under_the_local_dropdown(String string) {
-        WebElement Locale = profilePage.LocaleInput;
-        Select MultiLocale = new Select(Locale);
-        MultiLocale.selectByVisibleText("Turkish");
-        BrowserUtils.waitFor(10);
-        Assert.assertTrue(profilePage.LocaleInput.getText().contains("Turkish"));
+        profilePage.LocaleBtnVerify();
     }
 }
