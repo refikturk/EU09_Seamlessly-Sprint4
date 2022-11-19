@@ -44,6 +44,7 @@ Feature: User should be on the related module
     When User clicks on "Contacts" module
     Then  Verify that counts of contacts should be equal to the number next to Not grouped tab
 
+  @wipContacts3
   Scenario: User should be able to change the profile picture of any contact with a
   previously uploaded picture by using “Choose from files” option
     When User clicks on "Contacts" module
