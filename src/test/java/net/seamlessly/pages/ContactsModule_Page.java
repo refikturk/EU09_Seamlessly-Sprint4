@@ -5,6 +5,7 @@ import net.seamlessly.utilities.Driver;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -135,7 +136,7 @@ public class ContactsModule_Page extends BasePage {
     @FindBy(xpath = "//div[@class='contact-header__avatar']//*[contains(@aria-label,'Avatar of ')]/div[@class='unknown']")
     private WebElement avatarNameOfContact;
 
-    @FindBy(css = ".action-item.contact-header-avatar__menu.action-item--open")
+    @FindBy(xpath = "//button[@class='icon action-item__menutoggle icon-picture-force-white']")
     private WebElement pictureMenuIcon;
 
     @FindBy(xpath = "//ul[@id='menu-linfp']//span[contains(text(),' ')]")
@@ -146,8 +147,12 @@ public class ContactsModule_Page extends BasePage {
     private List<WebElement> contactSectionInTheMiddleColumn;
 
     public void selectContactFromMiddleSection(String contactFullName) {
-        WebElement selectContact = Driver.getDriver().findElement(By.xpath("//div[@role='group']//*[contains(@aria-label,'Avatar of " + contactFullName + " ')]/.."));
-        selectContact.click();
+        BrowserUtils.sleep(2);
+        WebElement selectContact = Driver.getDriver().findElement(By.xpath("//div[@role='group']//*[contains(@aria-label,'Avatar of "+contactFullName+"')]/.."));
+        BrowserUtils.sleep(2);
+
+        JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+        executor.executeScript("arguments[0].click()", selectContact);
 
     }
 
@@ -158,13 +163,13 @@ public class ContactsModule_Page extends BasePage {
     public void clictToUploadPicture(String action) {
 
         if (action.equalsIgnoreCase("upload a new picture")) {
-            Driver.getDriver().findElement(By.xpath("//ul[@id='menu-linfp']//span[contains(text(),'Upload a new picture')]")).click();
+            Driver.getDriver().findElement(By.xpath("//ul//span[contains(text(),'Upload a new picture')]")).click();
 
         } else if (action.equalsIgnoreCase("choose from files")) {
-            Driver.getDriver().findElement(By.xpath("//ul[@id='menu-linfp']//span[contains(text(),'choose from files')]")).click();
+            Driver.getDriver().findElement(By.xpath("//ul//span[contains(text(),'Choose from Files')]")).click();
 
         }else {
-            Driver.getDriver().findElement(By.xpath("//ul[@id='menu-linfp']//span[contains(text(),'Get from gravatar')]")).click();
+            Driver.getDriver().findElement(By.xpath("//ul//span[contains(text(),'Get from gravatar')]")).click();
         }
 
 
@@ -176,9 +181,10 @@ public class ContactsModule_Page extends BasePage {
     private WebElement chooseButton;
 
     public void selectPictureFromFiles(String pictureName){
+        BrowserUtils.waitForVisibility(By.xpath("//*[@id=\"body-user\"]/div[7]/h2"),2);
         WebElement selectedPicture = Driver.getDriver().findElement(By.xpath("//tr[@data-entryname='"+pictureName+"']"));
         selectedPicture.click();
-        BrowserUtils.waitForVisibility(chooseButton,2);
+        BrowserUtils.waitForClickablility(chooseButton,2);
         chooseButton.click();
 
     }
