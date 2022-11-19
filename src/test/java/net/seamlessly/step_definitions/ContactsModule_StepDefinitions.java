@@ -101,4 +101,5 @@ public class ContactsModule_StepDefinitions {
     public void userSelectFromMiddleColumn(String contactName) {
         contactsModule_page.selectContactFromMiddleSection(contactName);
     }
+
 }
