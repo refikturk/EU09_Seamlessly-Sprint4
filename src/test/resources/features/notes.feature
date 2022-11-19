@@ -1,4 +1,3 @@
-
 @SEAMLES-2528
 Feature: User should be on the related module
 
@@ -8,10 +7,8 @@ Feature: User should be on the related module
     And user types valid password to "Employee123"
     Then user clicks on log in button and lands on the dashboard page
 
-
- @SEAMLES-2523
-Scenario: User can create a new note
-    Given User click on the pencil icon top of the dashboard page
+  @SEAMLES-2523
+  Scenario: User can create a new note
     And User click on the pencil icon top of the dashboard page
     When User clicks on the New Note module
     Then User can write notes on the page
