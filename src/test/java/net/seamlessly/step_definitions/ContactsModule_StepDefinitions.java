@@ -78,7 +78,7 @@ public class ContactsModule_StepDefinitions {
         contactsModule_page.clickOnPictureMenuIcon();
     }
 
-    @And("User clicks on {string} button")
+    @And("User clicks on {string} buttons")
     public void userClicksOnButton(String buttonName) {
         contactsModule_page.clictToUploadPicture(buttonName);
     }
