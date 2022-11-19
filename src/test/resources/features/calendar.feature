@@ -46,8 +46,8 @@ Feature: US-006 Calendar Module Functionality [Automation-S4]
     And User clicks the Monthly Button
     And User clicks New event Button
     And User types title "voting day" to Event title box
-    And User selects event start clock "09.05 am" "June 12 2023"
-    And User selects event finish clock "06.00 pm"
+    And User selects event start clock "09.05" "June 12 2023"
+    And User selects event finish clock "18.00"
     And User adds a location related to the event on "Turkey"
     And User adds a description related to event "hopefully everything will be fine"
     Then User clicks save button to save event
@@ -61,7 +61,7 @@ Feature: US-006 Calendar Module Functionality [Automation-S4]
     And User clicks the Monthly Button
     And User clicks to calendar page date button
     And User goes to event date "June 12 2023"
-    Then Verify that User sees the new event "voting day" "9:05 am"
+    Then Verify that User sees the new event "voting day" "9:05"
 
   @SEAMLES-2514
   Scenario: User can delete any event through the Monthly Calendar view by clicking on the event and then using “more” option

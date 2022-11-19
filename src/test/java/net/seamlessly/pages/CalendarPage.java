@@ -40,10 +40,10 @@ public class CalendarPage extends BasePage {
     @FindBy(xpath = "//input[@placeholder='Event title']")
     private WebElement inputEventTitle;
 
-    @FindBy(xpath = "//*[@class=\"popover vue-popover-theme event-popover\"]/div/div[1]/div[1]/div[4]/div[1]/div[1]/div/input")
+    @FindBy(xpath = "(//*[@placeholder='Pick a date and a time'])[1]")
     private WebElement inputEventStartedDate;
 
-    @FindBy(xpath = "//*[@class=\"popover vue-popover-theme event-popover\"]/div/div[1]/div[1]/div[4]/div[1]/div[2]/div/input")
+    @FindBy(xpath = "(//*[@placeholder='Pick a date and a time'])[2]")
     private WebElement inputEventFinishedDate;
 
     @FindBy(xpath = "//button[@class='mx-btn mx-btn-text']")
@@ -170,22 +170,24 @@ public class CalendarPage extends BasePage {
 
     public void selectedEventStartDate(String startTime, String eventDate) {
         waitForClickablility(inputEventStartedDate, 10).click();
-        waitFor(2);
+        waitFor(5);
+
+        //09.05
 
         int dotIndex = (startTime.lastIndexOf("."));
-        int spaceIndex = (startTime.lastIndexOf(" "));
+       // int spaceIndex = (startTime.lastIndexOf(" "));
 
         String inputClock = startTime.substring(0, dotIndex);
         inputClock = inputClock.trim();
         System.out.println("inputClock = " + inputClock);
 
-        String inputMinute = startTime.substring(dotIndex + 1, spaceIndex);
+        String inputMinute = startTime.substring(dotIndex + 1);
         inputMinute = inputMinute.trim();
         System.out.println("inputMinute = " + inputMinute);
 
-        String amPm = startTime.substring(spaceIndex);
-        amPm = amPm.trim().toUpperCase(Locale.ROOT);
-        System.out.println("amPm = " + amPm);
+//        String amPm = startTime.substring(spaceIndex);
+//        amPm = amPm.trim().toUpperCase(Locale.ROOT);
+//        System.out.println("amPm = " + amPm);
 
 
         WebElement minute = getDriver().findElement(By.xpath("//div//ul[@data-type='minute']/li[contains(text(),'" + inputMinute + "')]"));
@@ -196,8 +198,8 @@ public class CalendarPage extends BasePage {
 
         waitForClickablility(hour, 10).click();
 
-        WebElement amPM = getDriver().findElement(By.xpath("//div//ul[@data-type='ampm']/li[contains(text(),'" + amPm + "')]"));
-        waitForClickablility(amPM, 10).click();
+//        WebElement amPM = getDriver().findElement(By.xpath("//div//ul[@data-type='ampm']/li[contains(text(),'" + amPm + "')]"));
+//        waitForClickablility(amPM, 10).click();
 
         waitFor(1);
         pickADateBtn.click();
@@ -256,13 +258,13 @@ public class CalendarPage extends BasePage {
         inputClock = inputClock.trim();
         System.out.println("inputClock = " + inputClock);
 
-        String inputMinute = finishedTime.substring(dotIndex + 1, spaceIndex);
+        String inputMinute = finishedTime.substring(dotIndex + 1);
         inputMinute = inputMinute.trim();
         System.out.println("inputMinute = " + inputMinute);
 
-        String amPm = finishedTime.substring(spaceIndex);
-        amPm = amPm.trim().toUpperCase(Locale.ROOT);
-        System.out.println("amPm = " + amPm);
+//        String amPm = finishedTime.substring(spaceIndex);
+//        amPm = amPm.trim().toUpperCase(Locale.ROOT);
+//        System.out.println("amPm = " + amPm);
 
 
         WebElement minute = getDriver().findElement(By.xpath("//div//ul[@data-type='minute']/li[contains(text(),'" + inputMinute + "')]"));
@@ -273,8 +275,8 @@ public class CalendarPage extends BasePage {
 
         waitForClickablility(hour, 10).click();
 
-        WebElement amPM = getDriver().findElement(By.xpath("//div//ul[@data-type='ampm']/li[contains(text(),'" + amPm + "')]"));
-        waitForClickablility(amPM, 10).click();
+//        WebElement amPM = getDriver().findElement(By.xpath("//div//ul[@data-type='ampm']/li[contains(text(),'" + amPm + "')]"));
+//        waitForClickablility(amPM, 10).click();
 
         waitFor(1);
         pickADateBtn.click();
