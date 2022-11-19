@@ -49,12 +49,14 @@ Feature: User should be on the related module
     When User clicks on "Contacts" module
     And User selects the contact "<contactFullName>" from middle column
     And User clicks on the picture icon
-    And User clicks on "Choose from Files" button
+    And User clicks on "Choose from Files" buttons
     And User selects a picture "<fileName>" to change the profile picture
     Then  Verify that selected picture is displayed on the contact profile picture
       | contactFullName | fileName    |
       | Bill Gates      | Bill_Gates1 |
       | Elon Musk       | elon_musk   |
+     ##
+
 
 
 
