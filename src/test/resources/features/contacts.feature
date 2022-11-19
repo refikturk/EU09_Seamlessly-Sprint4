@@ -1,3 +1,4 @@
+@contactsModule
 Feature: User should be on the related module
 
   Background: User should be on the dashboard page with valid credentials
@@ -6,11 +7,6 @@ Feature: User should be on the related module
     And user types valid password to "Employee123"
     Then user clicks on log in button and lands on the dashboard page
 
-
-  Scenario: User is on the contacts module
-    When User clicks on "CONTACTS" module
-    Then  User clicks on "Settings" module from the right side
-    Then  User clicks on "Logout" button from profile menu
 
   @wipContacts
   Scenario Outline: User should be able to create new contact
@@ -30,8 +26,6 @@ Feature: User should be on the related module
     Then Verify that "<contactFullName>" is seen on the middle column
     And User clicks on log out button
 
-
-
     Examples: Contacts information
       | contactFullName | Company   | Title   | phoneType | phoneNumber | emailType | email               | POBox | Address | Extended address | Postal code | City    | State or province | Country |
       | Bill Gates      | Microsoft | Founder | Work      | 4441122     | Work      | billgates@gmail.com | 36360 | Redmond | Washington       | 36360       | Redmond | Washington        | USA     |
@@ -39,13 +33,13 @@ Feature: User should be on the related module
       | Nuray Mercan    | CheckOS   | Founder | Work      | 312555411   | Work      | nmercan@checkos.com | 36360 | Cankaya | Ankara, Turkey   | 36360       | Ankara  | Cankaya           | Turkey  |
 
   @wipContacts2
-  Scenario: User should see all the contacs as a list inside the middle column
+  Scenario: User should see all the contacts as a list inside the middle column
   and the total number of contacts near the "All Contacts" tab
     When User clicks on "Contacts" module
     Then  Verify that counts of contacts should be equal to the number next to Not grouped tab
 
   @wipContacts3
-  Scenario: User should be able to change the profile picture of any contact with a
+  Scenario Outline: User should be able to change the profile picture of any contact with a
   previously uploaded picture by using “Choose from files” option
     When User clicks on "Contacts" module
     And User selects the contact "<contactFullName>" from middle column
@@ -53,10 +47,15 @@ Feature: User should be on the related module
     And User clicks on "Choose from Files" buttons
     And User selects a picture "<fileName>" to change the profile picture
     Then  Verify that selected picture is displayed on the contact profile picture
+    Examples:
       | contactFullName | fileName    |
-      | Bill Gates      | Bill_Gates1 |
-      | Elon Musk       | elon_musk   |
-     ##
+      | Elon Musk       | Bill_Gates1.jpg |
+      | Bill Gates      | elon_musk.jpg   |
+    ##
+
+
+
+
 
 
 

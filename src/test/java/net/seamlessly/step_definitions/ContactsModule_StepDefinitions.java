@@ -79,7 +79,7 @@ public class ContactsModule_StepDefinitions {
     }
 
     @And("User clicks on {string} buttons")
-    public void userClicksOnButton(String buttonName) {
+    public void userClicksOnButtons(String buttonName) {
         contactsModule_page.clictToUploadPicture(buttonName);
     }
 
