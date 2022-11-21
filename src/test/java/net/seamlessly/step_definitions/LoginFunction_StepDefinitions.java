@@ -13,6 +13,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static net.seamlessly.utilities.BrowserUtils.*;
+
 public class LoginFunction_StepDefinitions {
 
     LoginPage loginPage = new LoginPage();
@@ -31,6 +33,7 @@ public class LoginFunction_StepDefinitions {
     @When("user types valid password to {string}")
     public void user_types_valid_password_to(String password) {
         loginPage.password.sendKeys(password);
+        waitForPageToLoad(30);
     }
 
     @Then("user should see the dashboard")
