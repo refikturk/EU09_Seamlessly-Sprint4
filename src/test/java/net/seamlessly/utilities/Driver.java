@@ -42,7 +42,8 @@ public class Driver {
             We read our browserType from configuration.properties.
             This way, we can control which browser is opened from outside our code, from configuration.properties.
              */
-            String browserType = ConfigurationReader.getProperty("browser");
+            //String browserType = ConfigurationReader.getProperty("browser");
+            String browserType = System.getProperty("browser") != null ? System.getProperty("browser") : ConfigurationReader.getProperty("browser");
 
 
             /*
@@ -51,9 +52,14 @@ public class Driver {
             */
             switch (browserType){
                 case "chrome":
-
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
+                case "chrome-headless":
+                    WebDriverManager.chromedriver().setup();
+                    driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true)));
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
