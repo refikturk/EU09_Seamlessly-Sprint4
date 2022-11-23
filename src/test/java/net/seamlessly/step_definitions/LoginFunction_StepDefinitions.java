@@ -147,6 +147,7 @@ public class LoginFunction_StepDefinitions {
     @Then("user clicks on log in button and lands on the dashboard page")
     public void userClicksOnLogInButtonAndLandsOnTheDashboardPage() {
         loginPage.loginButton.click();
+        BrowserUtils.waitForPageToLoad(60);
         Assert.assertEquals("Dashboard - Seamlessly",Driver.getDriver().getTitle());
     }
 }
