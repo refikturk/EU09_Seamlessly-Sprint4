@@ -1,4 +1,4 @@
-@smoke
+
 Feature: This Smoke Test covers all the crucial Test Cases verifying essential functions on Seamlessly app.
 
   Background: User should be on the dashboard page with valid credentials
@@ -7,7 +7,7 @@ Feature: This Smoke Test covers all the crucial Test Cases verifying essential f
     And user types valid password to "Employee123"
     Then user clicks on log in button and lands on the dashboard page
 
-    #NURAY
+  @smoke #NURAY
   Scenario: User can see the current local time under the Local dropdown
     When user select local time under the local dropdown
     Then user see verify that current local time "Turkish" under the Local dropdown
